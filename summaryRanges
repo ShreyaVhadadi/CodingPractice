@@ -1,0 +1,30 @@
+class Solution {
+    public List<String> summaryRanges(int[] nums) {
+
+        List<String> ans= new ArrayList<>();
+        if (nums.length==0) return ans;
+        String s="";
+        int o=0;
+        int i=0;
+        int j=1;
+        while(j<nums.length){
+            if(nums[j]-nums[i]==1){
+                i++;j++;
+                continue;
+            }   
+            s=nums[o]==nums[i]?nums[o]+"":nums[o]+"->"+nums[i];
+            ans.add(s);
+            i=j;
+            o=i;
+            j++;
+
+        }
+        if(nums[o]!=nums[j-1])
+            ans.add(nums[o]+"->"+nums[j-1]);
+        else 
+            ans.add(nums[o]+"");
+
+        return ans;
+    }
+    
+}
