@@ -1,0 +1,33 @@
+class Solution {
+    public int findKthPositive(int[] arr, int k) {
+        int diff=0;
+        int len=arr.length;
+        if (len==1)
+        return arr[0]==1?k+1:(arr[0]<=k?k -(arr[0]-1)+arr[0]:k);
+        int i=0;
+        int j=1;
+        if(i==0&&arr[0]!=1){
+                diff=arr[i]-1;
+                if(k<=diff)return k;
+                else k=k-diff;
+            }
+        while(j<len){
+            if(arr[j]-arr[i]!=1){
+                diff=arr[j]-arr[i]-1;
+                 if(k<=diff){
+                    return arr[i]+k;
+                    }
+                else{
+                    k=k-diff;
+                    }
+            }
+            i++;
+            j++;
+        }
+        if(k!=0)
+        {
+        return arr[arr.length-1]+k;
+        }
+        return 0;
+    }
+}
