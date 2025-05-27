@@ -1,0 +1,32 @@
+class Solution {
+    public int trap(int[] height) {
+        int left=0;
+        int right=height.length-1;
+        int ans=0;
+        int maxleft=0;
+        int maxright=height.length-1;
+
+        while(left<=right){
+            //ans=Math.max(ans,)
+            if(height[left]<height[right]){
+                if(height[left]>height[maxleft])
+                    maxleft=left;
+                else   
+                    ans+=(height[maxleft]-height[left])*(1);
+                left++;
+            }
+            else{//(height[right]<=height[left])
+                if(height[right]>height[maxright])
+                    maxright=right;
+                else
+                    ans+=(height[maxright]-height[right])*(1);
+                right--;
+            }
+        }
+        return ans;
+    }
+}
+//Time: O(N)
+//Space:O(1)
+
+
