@@ -1,0 +1,7 @@
+class Solution {
+    public boolean isPowerOfFour(int n) {
+        return n>0 && (Math.log(n)/Math.log(4))%1==0;
+    }
+}
+//Time Complexity:O(1)
+//Space Complexity:O(1)
